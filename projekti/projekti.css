@@ -1,5 +1,9 @@
 body{
-  background-image: url("imazhe/2.jpg");
-  /*background-size: 1390px 700px;*/
-  background-repeat: repeat;
+  /*background-image: url("imazhe/12.jpg");*/
+  /*background-size: 1400px 700px;*/
+  /*background-repeat: repeat;*/
+  background-color: #e9ebee;
+}
+.try{
+  background-color: #337ab7 !important;
 }

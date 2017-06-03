@@ -4,18 +4,16 @@ include "../connect.php";
 if(isset($_SESSION['id']) == ""){
   header("Location: ../index.php");
 }
-
 $id = $_SESSION['id'];
 $sql = "SELECT * FROM user WHERE id_user='$id'";
 $result = mysqli_query($con, $sql);
 $row = mysqli_fetch_assoc($result);
-
-
+if($row['role'] != 2){
+  echo "Error 505!";
+}else{
     if(isset($_POST['submit'])){
-
-      $id_lenda =$_POST['lenda'];
-      $id_viti_akademik =$_POST['viti_akademik'];
-
+      $id_lenda =mysqli_escape_string($con, $_POST['lenda']);
+      $id_viti_akademik = mysqli_escape_string($con, $_POST['viti_akademik']);
     }
 ?>
 
@@ -32,15 +30,15 @@ $row = mysqli_fetch_assoc($result);
   </head>
 
   <body>
-    <nav class="navbar navbar-default">
+    <nav class="navbar" style="background-color:#337ab7;">
           <div class="container-fluid">
             <div class="navbar-header">
-              <a class="navbar-brand" href="">Flete Provimi</a>
+              <a class="navbar-brand" href="index.php" style="color:white;">Flete Provimi</a>
             </div>
 
             <div class="collapse navbar-collapse" id="navbar">
               <ul class="nav navbar-nav navbar-right nav-menu">
-                <li><a href="index_sekretari.php">  <?php echo $row['username']; ?></a></li>
+                <li><a href="index.php" style="color:white;">  <?php echo $row['username']; ?></a></li>
                 <li><a href="../index.php">Logout</a></li>
               </ul>
             </div>
@@ -210,5 +208,5 @@ $row = mysqli_fetch_assoc($result);
      </div>
   </body>
   <?php
-  } ?>
+}} ?>
 </html>

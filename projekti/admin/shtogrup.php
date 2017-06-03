@@ -9,7 +9,7 @@ include "../connect.php";
 
 		$query1 = "INSERT INTO grupi (id_grupi,em_grupi, em_cikli,id_viti_akademik) VALUES('4','$em_grupi','$em_cikli','$id_viti_akademik')";
     $query2 = "SELECT * FROM grupi WHERE em_grupi='$em_grupi' AND em_cikli='$em_cikli' AND id_viti_akademik='$id_viti_akademik'";
-    
+
     $result = mysqli_query($result);
     if(mysqli_num_rows($result) == 0){
 

@@ -8,6 +8,9 @@ $id = $_SESSION['id'];
 $sql = "SELECT * FROM user WHERE id_user='$id'";
 $result = mysqli_query($con, $sql);
 $row = mysqli_fetch_assoc($result);
+if($row['role'] != 2){
+  echo "Error 505!";
+}else{
 
 ?>
 <!DOCTYPE html>
@@ -22,15 +25,15 @@ $row = mysqli_fetch_assoc($result);
       <title>Flete Provimi</title>
     </head>
     <body>
-      <nav class="navbar navbar-default">
+      <nav class="navbar" style="background-color:#337ab7;">
           <div class="container-fluid">
             <div class="navbar-header">
-              <a class="navbar-brand" href="">Flete Provimi</a>
+              <a class="navbar-brand" href="index.php" style="color:white;">Flete Provimi</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
               <ul class="nav navbar-nav navbar-right nav-menu">
-                <li><a href="index_pedagog.php">  <?php echo $row['username'];  ?></a></li>
-                <li><a href="../logout.php">Logout</a></li>
+                <li><a href="index.php" style="color:white;"> <?php echo $row['username'];  ?></a></li>
+                <li><a href="../logout.php" style="color:white;" >Logout</a></li>
               </ul>
             </div>
           </div>
@@ -104,7 +107,7 @@ $row = mysqli_fetch_assoc($result);
           }
           }
 
-        }?>
+        }}?>
       </div>
 </body>
 </html>
